@@ -1,0 +1,465 @@
+openapi: 3.0.3
+info:
+  title: 'CSGOPaka.com API Docs'
+  description: 'CSGOPaka REST API Documentation'
+  version: 1.0.0
+servers:
+  -
+    url: 'https://api.csgopaka.com'
+paths:
+  /v1/items:
+    get:
+      summary: 'Search items'
+      operationId: searchItems
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filter[name]'
+          description: 'Specified skin name. You can search many items, but you have to put comma (,) between them'
+          example: AK-47
+          required: false
+          schema:
+            type: string
+            description: 'Specified skin name. You can search many items, but you have to put comma (,) between them'
+            example: AK-47
+        -
+          in: query
+          name: 'filter[market_hash_name]'
+          description: 'Specified skin market name. You can search many items, but you have to put comma (,) between them'
+          example: 'AWP | Dragon Lore (Minimal Wear)'
+          required: false
+          schema:
+            type: string
+            description: 'Specified skin market name. You can search many items, but you have to put comma (,) between them'
+            example: 'AWP | Dragon Lore (Minimal Wear)'
+        -
+          in: query
+          name: 'filter[appid]'
+          description: 'Steam appid'
+          example: 730
+          required: false
+          schema:
+            type: integer
+            description: 'Steam appid'
+            example: 730
+        -
+          in: query
+          name: limit
+          description: 'Pagination elements count (1-250)'
+          example: '100'
+          required: false
+          schema:
+            type: integer
+            description: 'Pagination elements count (1-250)'
+            example: '100'
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  type: pagination
+                  data:
+                    -
+                      id: 39268
+                      appid: 730
+                      image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-ckvbnNrfummJW4NE_j7mT8Nrw3QXt_RY-NzymIIHGdw87ZlHZrAe-wO-70ZC4uZzNzndjvz5iuyhP0kvddA/'
+                      price: '3.40'
+                      name: 'Glock-18 | Łasica'
+                      market_hash_name: 'Glock-18 | Weasel (Minimal Wear)'
+                      steam_price: '2.95'
+                    -
+                      id: 39325
+                      appid: 730
+                      image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1OD3djFN79fnzL-chfbgO6LCqWZU7Mxkh6eT9o6gi1fn-0duMG2gdoDDcAE_aA6FrwS5xevs1Mft6cvOySdh6SQr-z-DyMHeYcY1/'
+                      price: '1.07'
+                      name: 'Glock-18 | Zjawy'
+                      market_hash_name: 'Glock-18 | Wraiths (Well-Worn)'
+                      steam_price: '0.94'
+                    -
+                      id: 39326
+                      appid: 730
+                      image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1OD3djFN79fnzL-chfbgO6LCqWZU7Mxkh6eT9o6gi1fn-0duMG2gdoDDcAE_aA6FrwS5xevs1Mft6cvOySdh6SQr-z-DyMHeYcY1/'
+                      price: '1.10'
+                      name: 'Glock-18 | Zjawy'
+                      market_hash_name: 'Glock-18 | Wraiths (Well-Worn)'
+                      steam_price: '0.94'
+                    -
+                      id: 39328
+                      appid: 730
+                      image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0vL3djFN79eJxdi0guX2MrXum2Re5vp3j__E57P9jVWisl1rZG33J4aTeg4-ZFzX8gTqkOe9gsPquZyayXExuiZ07XnezUSzgRwZcKUx0m61XlfR/'
+                      price: '1.44'
+                      name: 'Glock-18 | Wschód Księżyca'
+                      market_hash_name: 'Glock-18 | Moonrise (Battle-Scarred)'
+                      steam_price: '1.27'
+                    -
+                      id: 39330
+                      appid: 730
+                      image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf2-r3ci9D_cmzmJWZksj4OrzZgiUJ7Zwmj-uQoo2l2VHj-BBoZDj7LY6SdA47NV_U-gO9xeq-0MS-78_B1zI97YdssEhj/'
+                      price: '5.52'
+                      name: 'Glock-18 | Niebieska szczelina'
+                      market_hash_name: 'Glock-18 | Blue Fissure (Minimal Wear)'
+                      steam_price: '6.65'
+                  pagination:
+                    total: 197
+                    per_page: 5
+                    current_page: 1
+                    links:
+                      next_page: 'https://api.csgopaka.com/v1/items?page=2'
+                      previous_page: null
+                      first_page: 'https://api.csgopaka.com/v1/items?page=1'
+                    pages: 40
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  type:
+                    type: string
+                    example: pagination
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 39268
+                        appid: 730
+                        image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-ckvbnNrfummJW4NE_j7mT8Nrw3QXt_RY-NzymIIHGdw87ZlHZrAe-wO-70ZC4uZzNzndjvz5iuyhP0kvddA/'
+                        price: '3.40'
+                        name: 'Glock-18 | Łasica'
+                        market_hash_name: 'Glock-18 | Weasel (Minimal Wear)'
+                        steam_price: '2.95'
+                      -
+                        id: 39325
+                        appid: 730
+                        image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1OD3djFN79fnzL-chfbgO6LCqWZU7Mxkh6eT9o6gi1fn-0duMG2gdoDDcAE_aA6FrwS5xevs1Mft6cvOySdh6SQr-z-DyMHeYcY1/'
+                        price: '1.07'
+                        name: 'Glock-18 | Zjawy'
+                        market_hash_name: 'Glock-18 | Wraiths (Well-Worn)'
+                        steam_price: '0.94'
+                      -
+                        id: 39326
+                        appid: 730
+                        image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1OD3djFN79fnzL-chfbgO6LCqWZU7Mxkh6eT9o6gi1fn-0duMG2gdoDDcAE_aA6FrwS5xevs1Mft6cvOySdh6SQr-z-DyMHeYcY1/'
+                        price: '1.10'
+                        name: 'Glock-18 | Zjawy'
+                        market_hash_name: 'Glock-18 | Wraiths (Well-Worn)'
+                        steam_price: '0.94'
+                      -
+                        id: 39328
+                        appid: 730
+                        image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0vL3djFN79eJxdi0guX2MrXum2Re5vp3j__E57P9jVWisl1rZG33J4aTeg4-ZFzX8gTqkOe9gsPquZyayXExuiZ07XnezUSzgRwZcKUx0m61XlfR/'
+                        price: '1.44'
+                        name: 'Glock-18 | Wschód Księżyca'
+                        market_hash_name: 'Glock-18 | Moonrise (Battle-Scarred)'
+                        steam_price: '1.27'
+                      -
+                        id: 39330
+                        appid: 730
+                        image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf2-r3ci9D_cmzmJWZksj4OrzZgiUJ7Zwmj-uQoo2l2VHj-BBoZDj7LY6SdA47NV_U-gO9xeq-0MS-78_B1zI97YdssEhj/'
+                        price: '5.52'
+                        name: 'Glock-18 | Niebieska szczelina'
+                        market_hash_name: 'Glock-18 | Blue Fissure (Minimal Wear)'
+                        steam_price: '6.65'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 39268
+                        appid:
+                          type: integer
+                          example: 730
+                        image:
+                          type: string
+                          example: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-ckvbnNrfummJW4NE_j7mT8Nrw3QXt_RY-NzymIIHGdw87ZlHZrAe-wO-70ZC4uZzNzndjvz5iuyhP0kvddA/'
+                        price:
+                          type: string
+                          example: '3.40'
+                        name:
+                          type: string
+                          example: 'Glock-18 | Łasica'
+                        market_hash_name:
+                          type: string
+                          example: 'Glock-18 | Weasel (Minimal Wear)'
+                        steam_price:
+                          type: string
+                          example: '2.95'
+                  pagination:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                        example: 197
+                      per_page:
+                        type: integer
+                        example: 5
+                      current_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: object
+                        properties:
+                          next_page:
+                            type: string
+                            example: 'https://api.csgopaka.com/v1/items?page=2'
+                          previous_page:
+                            type: string
+                            example: null
+                          first_page:
+                            type: string
+                            example: 'https://api.csgopaka.com/v1/items?page=1'
+                      pages:
+                        type: integer
+                        example: 40
+        422:
+          description: 'Invalid filter'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  type: error
+                  message: 'validation error'
+                  data:
+                    'filter[testInvalidFilter]':
+                      - 'Specified filter is not allowed'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'validation error'
+                  data:
+                    type: object
+                    properties:
+                      'filter[testInvalidFilter]':
+                        type: array
+                        example:
+                          - 'Specified filter is not allowed'
+                        items:
+                          type: string
+      tags:
+        - Items
+  '/v1/items/{item_id}':
+    get:
+      summary: 'Item info'
+      operationId: itemInfo
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  type: response
+                  data:
+                    id: 39268
+                    hash: y81z2rxhxy
+                    status: WAITING_FOR_SEND
+                    bought_at: '2023-11-25T16:06:21.000000Z'
+                    trade_offer_id: 5601948310
+                    error_message: null
+                    error_date: null
+                    last_send: '2022-12-16 18:29:30'
+                    next_try: null
+                    send_date: '2022-12-16 18:29:31'
+                    image: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-ckvbnNrfummJW4NE_j7mT8Nrw3QXt_RY-NzymIIHGdw87ZlHZrAe-wO-70ZC4uZzNzndjvz5iuyhP0kvddA/'
+                    price: '3.40'
+                    name: 'Glock-18 | Łasica'
+                    market_hash_name: 'Glock-18 | Weasel (Minimal Wear)'
+                    trade_url: 'https://steamcommunity.com/tradeoffer/new/?partner=1052325988&token=8Cxqzj20'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  type:
+                    type: string
+                    example: response
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 39268
+                      hash:
+                        type: string
+                        example: y81z2rxhxy
+                      status:
+                        type: string
+                        example: WAITING_FOR_SEND
+                        description: 'Allowed values: AVAILABLE, WAITING_FOR_TRADE_ACCEPT, TRADE_ACCEPTED, WAITING_FOR_SEND, UNAVAILABLE'
+                      bought_at:
+                        type: string
+                        example: '2023-11-25T16:06:21.000000Z'
+                      trade_offer_id:
+                        type: integer
+                        example: 5601948310
+                      error_message:
+                        type: string
+                        example: null
+                      error_date:
+                        type: string
+                        example: null
+                      last_send:
+                        type: string
+                        example: '2022-12-16 18:29:30'
+                      next_try:
+                        type: string
+                        example: null
+                      send_date:
+                        type: string
+                        example: '2022-12-16 18:29:31'
+                      image:
+                        type: string
+                        example: 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0Ob3djFN79fnzL-ckvbnNrfummJW4NE_j7mT8Nrw3QXt_RY-NzymIIHGdw87ZlHZrAe-wO-70ZC4uZzNzndjvz5iuyhP0kvddA/'
+                      price:
+                        type: string
+                        example: '3.40'
+                      name:
+                        type: string
+                        example: 'Glock-18 | Łasica'
+                      market_hash_name:
+                        type: string
+                        example: 'Glock-18 | Weasel (Minimal Wear)'
+                      trade_url:
+                        type: string
+                        example: 'https://steamcommunity.com/tradeoffer/new/?partner=1052325988&token=8Cxqzj20'
+      tags:
+        - Items
+    post:
+      summary: 'Buy item'
+      operationId: buyItem
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Item has been bought and now it waits for send by our bot'
+        400:
+          description: 'Item not available for sale'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  type: error
+                  message: 'specified item is not available for sale'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'specified item is not available for sale'
+        402:
+          description: 'Your wallet balance is too small'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  type: error
+                  message: 'you dont have that much money in your wallet'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'you dont have that much money in your wallet'
+      tags:
+        - Items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tradeUrl:
+                  type: string
+                  description: 'Steam TradeURL'
+                  example: 'https://steamcommunity.com/tradeoffer/new/?partner=000&token=xxx'
+              required:
+                - tradeUrl
+    parameters:
+      -
+        in: path
+        name: item_id
+        description: "CSGOPaka item's ID"
+        example: '39268'
+        required: true
+        schema:
+          type: integer
+  /v1/wallet:
+    get:
+      summary: 'Check wallet balance'
+      operationId: checkWalletBalance
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  type: response
+                  data:
+                    balance: 192.94
+                    balanceFormatted: '192.94 wPLN'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  type:
+                    type: string
+                    example: response
+                  data:
+                    type: object
+                    properties:
+                      balance:
+                        type: number
+                        example: 192.94
+                      balanceFormatted:
+                        type: string
+                        example: '192.94 wPLN'
+      tags:
+        - 'Wallet balance'
+tags:
+  -
+    name: Items
+    description: ''
+  -
+    name: 'Wallet balance'
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can get API Key from your account page'
+security:
+  -
+    default: []
